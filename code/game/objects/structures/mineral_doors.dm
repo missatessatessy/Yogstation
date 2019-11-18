@@ -355,4 +355,4 @@
 	sheetType = /obj/item/stack/sheet/mineral/cheese
 	resistance_flags = FLAMMABLE
 	max_integrity = 50
-	rad_insulation = RAD_VERY_LIGHT_INSULATION
+
