@@ -180,3 +180,14 @@
 	sheet_type = /obj/item/stack/tile/bronze
 	sheet_amount = 2
 	girder_type = /obj/structure/girder/bronze
+	
+/turf/closed/wall/mineral/cheese
+	name = "cheese wall"
+	desc = "A wall that tastes nice!"
+	icon = 'icons/turf/walls/cheese_wall.dmi'
+	icon_state = "cheese"
+	sheet_type = /obj/item/stack/sheet/mineral/cheese
+	explosion_block = 0
+	slicing_duration = 50
+	canSmoothWith = list(/turf/closed/wall/mineral/cheese, /obj/structure/falsewall/cheese)
+
