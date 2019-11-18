@@ -10,6 +10,7 @@
  * Runed Metal (cult)
  * Brass (clockwork cult)
  * Bronze (bake brass)
+ * Cheese
  */
 
 /*
@@ -716,3 +717,27 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	desc = "A source of raw socialism, capable of bringing forth the prophesized Soviet Golem."
 	icon_state = "sheet-stalinium"
 	merge_type = /obj/item/stack/sheet/stalinium
+	
+/obj/item/stack/sheet/mineral/cheese
+	name = "industrial cheese"
+	desc = "A bunch of cheese that seems malleable."
+	icon_state = "sheet-cheese"
+	item_state = "sheet-cheese"
+	icon = 'icons/obj/stack_objects.dmi'
+	singular_name = "industrial cheese sheet"
+	sheettype = "cheese"
+	novariants = TRUE
+	grind_results = list(/datum/reagent/consumable/milk = 20)
+	merge_type = /obj/item/stack/sheet/mineral/cheese
+	tableVariant = /obj/structure/table/cheese
+
+GLOBAL_LIST_INIT(cheese_recipes, list (
+	new/datum/stack_recipe("cheese door", /obj/structure/mineral_door/cheese, 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("cheese tile", /obj/item/stack/tile/cheese, 1, 4, 20), \
+	new/datum/stack_recipe("Cheesus Statue", /obj/structure/statue/cheese/cheesus, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("cheese chair", /obj/structure/chair/cheese, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	))
+
+/obj/item/stack/sheet/mineral/cheese/Initialize(mapload, new_amount, merge = TRUE)
+	recipes = GLOB.cheese_recipes
+	. = ..()
