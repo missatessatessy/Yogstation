@@ -127,6 +127,19 @@
 	icon_state = "cheesewheel_slice"
 	filling_color = "#FFFFFF"
 	foodtype = DAIRY
+	
+/obj/item/reagent_containers/food/snacks/store/cheesewheel/cheddar/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_WELDER)
+		if(W.use_tool(src, user, 0, volume=40))
+			var/obj/item/stack/sheet/mineral/cheese/new_item = new(usr.loc, 5)
+			user.visible_message("[user.name] shaped [src] into industrial cheese with [W].", \
+						 "<span class='notice'>You shape [src] into industrial cheese with [W].</span>", \
+						 "<span class='italics'>You hear welding.</span>")
+			var/obj/item/reagent_containers/food/snacks/store/cheesewheel/cheddar/R = src
+			qdel(src)
+			var/replace = (user.get_inactive_held_item()==R)
+			if (!R && replace)
+				user.put_in_hands(new_item)
 
 //feta
 /obj/item/reagent_containers/food/snacks/store/cheesewheel/feta
