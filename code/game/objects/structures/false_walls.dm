@@ -271,6 +271,15 @@
 	walltype = /turf/closed/wall/mineral/sandstone
 	canSmoothWith = list(/obj/structure/falsewall/sandstone, /turf/closed/wall/mineral/sandstone)
 
+/obj/structure/falsewall/cheese
+	name = "cheese wall"
+	desc = "A wall that tastes nice!"
+	icon = 'icons/turf/walls/cheese_wall.dmi'
+	icon_state = "cheese"
+	mineral = /obj/item/stack/sheet/mineral/cheese
+	walltype = /turf/closed/wall/mineral/cheese
+	canSmoothWith = list(/obj/structure/falsewall/cheese, /turf/closed/wall/mineral/cheese)
+
 /obj/structure/falsewall/wood
 	name = "wooden wall"
 	desc = "A wall with wooden plating. Stiff."
