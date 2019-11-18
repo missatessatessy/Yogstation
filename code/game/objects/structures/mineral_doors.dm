@@ -346,3 +346,13 @@
 /obj/structure/mineral_door/paperframe/Destroy()
 	queue_smooth_neighbors(src)
 	return ..()
+	
+/obj/structure/mineral_door/cheese
+	name = "cheese door"
+	icon_state = "cheese"
+	openSound = 'sound/effects/doorcreaky.ogg'
+	closeSound = 'sound/effects/doorcreaky.ogg'
+	sheetType = /obj/item/stack/sheet/mineral/cheese
+	resistance_flags = FLAMMABLE
+	max_integrity = 50
+	rad_insulation = RAD_VERY_LIGHT_INSULATION
