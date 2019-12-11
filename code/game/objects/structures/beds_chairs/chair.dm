@@ -216,6 +216,15 @@
 
 /obj/structure/chair/office/dark
 	icon_state = "officechair_dark"
+	
+/obj/structure/chair/cheese
+	icon_state = "cheese_chair"
+	name = "cheese chair"
+	desc = "Who wouldn't want to sit on cheese?"
+	resistance_flags = FLAMMABLE
+	max_integrity = 50
+	buildstacktype = /obj/item/stack/sheet/mineral/cheese
+	buildstackamount = 3
 
 //Stool
 

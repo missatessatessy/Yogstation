@@ -269,3 +269,8 @@
 /turf/open/floor/black
 	name = "black floor"
 	icon_state = "black"
+	
+/turf/open/floor/mineral/cheese
+	name = "cheese floor"
+	icon_state = "cheese"
+	floor_tile = /obj/item/stack/tile/cheese

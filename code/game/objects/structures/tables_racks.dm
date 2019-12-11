@@ -3,6 +3,7 @@
  *		Tables
  *		Glass Tables
  *		Wooden Tables
+ *		Cheese Tables
  *		Reinforced Tables
  *		Racks
  *		Rack Parts
@@ -372,6 +373,77 @@
 	icon_state = "fancy_table_royalblue"
 	buildstack = /obj/item/stack/tile/carpet/royalblue
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblue.dmi'
+	
+/*
+ * Cheese??
+ */
+
+
+/obj/structure/table/cheese
+	name = "cheese table"
+	desc = "It doesn't taste too bad."
+	icon = 'icons/obj/smooth_structures/cheese_table.dmi'
+	icon_state = "cheese_table"
+	buildstack = /obj/item/stack/sheet/mineral/cheese
+	canSmoothWith = null
+	max_integrity = 50
+	var/list/debris = list()
+
+/obj/structure/table/cheese/Initialize()
+	. = ..()
+	debris += new frame
+	debris += new /obj/item/reagent_containers/food/snacks/cheesewedge/cheddar
+
+/obj/structure/table/cheese/Destroy()
+	QDEL_LIST(debris)
+	. = ..()
+
+/obj/structure/table/cheese/Crossed(atom/movable/AM)
+	. = ..()
+	if(flags_1 & NODECONSTRUCT_1)
+		return
+	if(!isliving(AM))
+		return
+	// Don't break if they're just flying past
+	if(AM.throwing)
+		addtimer(CALLBACK(src, .proc/throw_check, AM), 5)
+	else
+		check_break(AM)
+
+/obj/structure/table/cheese/proc/throw_check(mob/living/M)
+	if(M.loc == get_turf(src))
+		check_break(M)
+
+/obj/structure/table/cheese/proc/check_break(mob/living/M)
+	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & FLYING))
+		table_shatter(M)
+
+/obj/structure/table/cheese/proc/table_shatter(mob/living/L)
+	visible_message("<span class='warning'>[src] breaks!</span>",
+		"<span class='danger'>You hear a cheesey thud.</span>")
+	var/turf/T = get_turf(src)
+	for(var/I in debris)
+		var/atom/movable/AM = I
+		AM.forceMove(T)
+		debris -= AM
+		if(istype(AM, /obj/item/reagent_containers/food/snacks/cheesewedge))
+			AM.throw_impact(L)
+	L.Paralyze(50)
+	qdel(src)
+
+/obj/structure/table/cheese/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			..()
+			return
+		else
+			var/turf/T = get_turf(src)
+			for(var/X in debris)
+				var/atom/movable/AM = X
+				AM.forceMove(T)
+				debris -= AM
+	qdel(src)	
+
 /*
  * Reinforced tables
  */
