@@ -76,6 +76,15 @@
 	turf_type = /turf/open/floor/grass
 	resistance_flags = FLAMMABLE
 
+//Cheese
+/obj/item/stack/tile/cheese
+	name = "cheese tile"
+	singular_name = "cheese tile"
+	desc = "Soft tasty cheese floor."
+	icon_state = "tile-cheese"
+	item_state = "tile-cheese"
+	turf_type = /turf/open/floor/cheese
+	resistance_flags = FLAMMABLE
 
 //Wood
 /obj/item/stack/tile/wood
