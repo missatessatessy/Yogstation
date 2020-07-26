@@ -33,7 +33,7 @@
 	integrity_failure = 30
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/obj/structure/table, /obj/structure/table/reinforced)
-	
+
 /obj/structure/table/Bumped(mob/living/carbon/human/H)
 	. = ..()
 	if(!istype(H) || H.shoes || !(H.mobility_flags & MOBILITY_STAND) || istype(H.dna.species, /datum/species/shadow/ling))
@@ -106,7 +106,7 @@
 
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 		return TRUE
-		
+
 	if(iscarbon(mover))
 		var/mob/living/carbon/C = mover
 		var/obj/item/tank/jetpack/jetpacktable = C.get_jetpack()
@@ -175,6 +175,8 @@
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 
 	if(user.a_intent != INTENT_HARM && !(I.item_flags & ABSTRACT))
+		if(HAS_TRAIT(user, TRAIT_SHORT) && !locate(/obj/structure/table) in user.loc) //If you are too short to put the item on the table, you can't
+			return ..()
 		if(user.transferItemToLoc(I, drop_location()))
 			var/list/click_params = params2list(params)
 			//Center the icon where the user clicked.
