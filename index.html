@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(49 modules,
-    426/6042 macros, 7.1%)</aside></h3>
+<aside>(50 modules,
+    427/6058 macros, 7%)</aside></h3>
 <ul class="index-tree">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -50,6 +50,7 @@ General Public License version 3.
     <li><a href="code/__DEFINES/combat.html" title="code&#x2F;__DEFINES&#x2F;combat.dm">combat</a></li>
     <li><a href="code/__DEFINES/components.html" title="code&#x2F;__DEFINES&#x2F;components.dm">components</a></li>
     <li><a href="code/__DEFINES/configuration.html" title="code&#x2F;__DEFINES&#x2F;configuration.dm">configuration</a></li>
+    <li><a href="code/__DEFINES/cooldowns.html" title="code&#x2F;__DEFINES&#x2F;cooldowns.dm">cooldowns</a></li>
     <li><a href="code/__DEFINES/cult.html" title="code&#x2F;__DEFINES&#x2F;cult.dm">cult</a></li>
     <li><a href="code/__DEFINES/diseases.html" title="code&#x2F;__DEFINES&#x2F;diseases.dm">diseases</a></li>
     <li><a href="code/__DEFINES/flags.html" title="code&#x2F;__DEFINES&#x2F;flags.dm">flags</a></li>
@@ -108,7 +109,7 @@ transformations and other events that cause new languages to become available.</
 
 
 <h3 id="types">Types
-<aside>(184 detailed/621 documented/21611 total, 2.9%)</aside></h3>
+<aside>(188 detailed/626 documented/21632 total, 2.9%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a> - A grouping of tiles into a logical space, mostly used by map editors<ul class="index-tree">
@@ -248,6 +249,7 @@ Set our target list with the new set we've generated.</li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;controller">controller</span><ul class="index-tree">
     <li><a href="datum/controller/global_vars.html" title="&#x2F;datum&#x2F;controller&#x2F;global_vars">Global Variables</a></li>
     <li class="has-children"><a href="datum/controller/subsystem.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem">fire coderbus</a><ul class="index-tree">
+    <li><a href="datum/controller/subsystem/Yogs.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;Yogs">Yog Features</a></li>
     <li><a href="datum/controller/subsystem/achievements.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;achievements">Achievements</a></li>
     <li><a href="datum/controller/subsystem/economy.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;economy">Economy</a></li>
     <li><a href="datum/controller/subsystem/job.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;job">Jobs</a></li>
@@ -282,6 +284,7 @@ Set our target list with the new set we've generated.</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;crafting_recipe&#x2F;kong">Kong</span> - Booze &amp; Bottles</li>
     </ul></li>
     <li><span class="no-substance">data&#x2F;</span><a href="datum/data/vending_product.html" title="&#x2F;datum&#x2F;data&#x2F;vending_product">vending record datum</a> - A datum that represents a product that is vendable</li>
+    <li><a href="datum/department_goal.html" title="&#x2F;datum&#x2F;department_goal">Department goal</a> - Goals that a department can complete for monetary (or other) rewards.</li>
     <li class="has-children"><a href="datum/design.html" title="&#x2F;datum&#x2F;design">Name</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;design&#x2F;RPED">Rapid Part Exchange Device</span> - Stock Parts</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;design&#x2F;advmop">Advanced Mop</span> - Janitor Designs</li>
@@ -385,6 +388,7 @@ this is the way to do it cleanly and properly.</li>
     <li><a href="datum/reagents.html" title="&#x2F;datum&#x2F;reagents">reagents</a> - Holder for a bunch of <a href="datum/reagent.html" title="/datum/reagent">/datum/reagent</a></li>
     <li class="has-children"><a href="datum/religion_rites.html" title="&#x2F;datum&#x2F;religion_rites">religious rite</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;synthconversion">Synthetic Conversion</span> - Technophiles</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;toppercent">Reaching the Top Percent</span> - Capitalists</li>
     </ul></li>
     <li><a href="datum/religion_sect.html" title="&#x2F;datum&#x2F;religion_sect">Religious Sect Base Type</a></li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;round_event">round_event</span><ul class="index-tree">
@@ -856,7 +860,9 @@ This has a shitload of vars on it, and I'm sorry for that, but it does make maki
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;wormhole_jaunter">wormhole jaunter</span> - Jaunter</li>
     </ul></li>
     <li class="has-children"><a href="obj/machinery.html" title="&#x2F;obj&#x2F;machinery">machinery</a><ul class="index-tree">
-    <li><a href="obj/machinery/atmospherics.html" title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics">atmospherics</a></li>
+    <li class="has-children"><a href="obj/machinery/atmospherics.html" title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics">atmospherics</a><ul class="index-tree">
+    <li><span class="no-substance">components&#x2F;unary&#x2F;</span><a href="obj/machinery/atmospherics/components/unary/cryo_cell.html" title="&#x2F;obj&#x2F;machinery&#x2F;atmospherics&#x2F;components&#x2F;unary&#x2F;cryo_cell">cryo cell</a></li>
+    </ul></li>
     <li><a href="obj/machinery/biogenerator.html" title="&#x2F;obj&#x2F;machinery&#x2F;biogenerator">biogenerator</a></li>
     <li><a href="obj/machinery/bounty_board.html" title="&#x2F;obj&#x2F;machinery&#x2F;bounty_board">bounty board</a> - A machine that acts basically like a quest board.
 Enables crew to create requests, crew can sign up to perform the request, and the requester can chose who to pay-out.</li>
@@ -939,7 +945,10 @@ you want to show on the map, which you usually attach to &quot;vis_contents&quot
     <li><span class="no-substance">wardrobe&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;wardrobe&#x2F;miner">mining wardrobe</span> - Miner Lockers</li>
     </ul></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;constructshell">empty shell</span> - Transferring to constructs</li>
-    <li><span class="no-substance">destructible&#x2F;cult&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;destructible&#x2F;cult&#x2F;pillar">obsidian pillar</span> - WE'RE IN THE ENDGAME NOW</li>
+    <li class="has-children"><span title="&#x2F;obj&#x2F;structure&#x2F;destructible">destructible</span><ul class="index-tree">
+    <li><span class="no-substance">cult&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;destructible&#x2F;cult&#x2F;pillar">obsidian pillar</span> - WE'RE IN THE ENDGAME NOW</li>
+    <li><a href="obj/structure/destructible/honkmother.html" title="&#x2F;obj&#x2F;structure&#x2F;destructible&#x2F;honkmother">The Honkmother</a></li>
+    </ul></li>
     <li><span class="no-substance">girder&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;girder&#x2F;cult">runed girder</span> - cult girder</li>
     <li><a href="obj/structure/grille.html" title="&#x2F;obj&#x2F;structure&#x2F;grille">grille</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;mecha_wreckage">exosuit wreckage</span> - Mecha wreckage<ul class="index-tree">
@@ -991,7 +1000,7 @@ uranium</li>
 </main>
 <footer>
     yogstation.dme
-    <a href="https://github.com/missatessatessy/Yogstation/tree/1ca45a2f0e68121c55e872cc814a3b82393984f0">1ca45a2</a>
+    <a href="https://github.com/missatessatessy/Yogstation/tree/9d49e1b1549d0a9361e0b4b8fbd6bd050b75f5c6">9d49e1b</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.2.1</a></footer>
 </body>
 </html>
